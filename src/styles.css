@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.left-bar-width {
+    width: 240px;
+}
+
+@media (max-width: 576px) {
+    .left-bar-width {
+        width: 100%;
+    }
+}

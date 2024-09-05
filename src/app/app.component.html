@@ -1,0 +1,41 @@
+<div class="main-wrapper d-flex flex-column">
+  <div class="header-wrapper d-flex flex-wrap">
+    <div class="logo-bar d-flex align-items-center justify-content-center" [ngClass]="{ 'left-bar-isCollapsed': isCollapsed }">
+      <div class="logo-container w-100 d-flex px-2">
+        <div (click)="toggleLeftBarM()" class="menu-toggle-button"><i class="bi bi-list"></i></div>
+        <div class="align-items-center">
+          <div>
+            <img class="logo-img" src="assets/img/logo_s.png">
+          </div>
+        </div>
+        <div (click)="toggleHeader()" class="header-toggle-button"><i class="bi bi-three-dots-vertical"></i></div>
+      </div>
+    </div>
+
+    <div class="header-bar flex-grow-1 d-flex align-items-center" [ngClass]="{ 'header-is-showed': headerShow }">
+      <div class="w-100 align-items-center d-flex flex-row">
+        <div class="d-flex flex-row align-items-center ps-1">
+          <div class="d-none d-md-block">
+            <span (click)="toggleLeftBarD()" class="cursor-pointer text-light px-3 h5">
+              <i *ngIf="!isCollapsed" class="bi bi-arrow-left-circle"></i>
+              <i *ngIf="isCollapsed" class="bi bi-arrow-right-circle"></i>
+            </span>
+          </div>
+        </div>
+        <app-header class="d-flex flex-grow-1 flex-row align-items-center justify-content-between"></app-header>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="content-wrapper flex-grow-1 d-flex">
+    <div class="left-bar left-bar-width" [ngClass]="{ 'left-bar-isShowed': !isShowed, 'left-bar-isCollapsed': isCollapsed }">
+      <app-left-bar></app-left-bar>
+    </div>
+    <div [ngClass]="{ 'd-none': !isShowed }" class="content-bar flex-grow-1">
+      <div class="w-100 p-3">
+        <app-main-content></app-main-content>
+      </div>
+    </div>
+  </div>
+</div>
